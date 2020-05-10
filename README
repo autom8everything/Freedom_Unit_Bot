@@ -1,0 +1,8 @@
+This program controlls a Reddit bot that converts values from conventional (communist) units to freedom units.
+
+Units to convert, conversion factors, and corresponding freedom units are stored in unit_conversions.csv
+
+redditbot is the driver for the bot that logs into the API, reads the CSV, and handles multithreading of subreddit patroller across multiple subreddits
+
+subreddit_patroller checks the comment stream (of new comments only) for a specified subreddit and replies to posts that meet criteria (user calls the bot or is the nth comment detected using preset units where n is the frequency specified in redditbot).
+
