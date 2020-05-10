@@ -80,7 +80,7 @@ def check_for_units(comment,units,key):
 #checking comment for units and value            
 def parse_for_values(comment,unit):
     if unit in comment:
-        match = re.search(rf"[\d.-]* {unit} ",comment) #regexp to search for units
+        match = re.search(rf"[\d.-]* {unit}[ .,*/_]",comment) #regexp to search for units
         try:
             unitvalue = float(match.group(0)[:-len(unit)-2])
             return True,unitvalue
