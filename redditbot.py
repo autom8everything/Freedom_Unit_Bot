@@ -21,6 +21,8 @@ def run_bot():
                       username=bot_username,
                       password=bot_password,
                       user_agent=bot_agent)
+                      
+    print(f"client_id={bot_client_id}\nclient_secret={bot_client_secret}\nusername={bot_username}\npassword={bot_password}\nuser_agent={bot_agent}")
     
     #subreddits to target
     subreddits = ["memes","theydidthemath"]
@@ -39,20 +41,15 @@ def run_bot():
     for subname,shouldpatrol in zip(subreddits,patrol_sub):
         bot_threads.append(threading.Thread(target=patrol.patrol,
             args=(bot,units,subname,keyphrase,shouldpatrol,frequency)))
-    
-    try:
+
         
-        #starting threads
-        for cthread in bot_threads:
-            cthread.start()
-            
-        #letting execute
-        while True:
-            time.sleep(1)
+    #starting threads
+    for cthread in bot_threads:
+        cthread.start()
         
-    except:
-        print("Terminating!")
-        return
+    #letting execute
+    while True:
+        time.sleep(1)
         
         
 if __name__ == "__main__":
