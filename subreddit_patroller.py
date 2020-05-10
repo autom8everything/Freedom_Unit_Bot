@@ -3,9 +3,7 @@ import numpy as np
 
 #patrolling incoming comments for requests or units
 def patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency):
-    
-    cc = 1
-    
+        
     print(f"[!] Targeting {targetsub}")
     
     try:
@@ -17,6 +15,8 @@ def patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency):
     
     
 def stream_comments(bot,units,targetsub,keyphrase,patrol_sub,frequency):
+    cc = 1
+    
     #looping through all incoming comments
     for comment in bot.subreddit(targetsub).stream.comments(skip_existing=True):
         if comment.author != "Freedom_Unit_Bot":
@@ -35,7 +35,7 @@ def stream_comments(bot,units,targetsub,keyphrase,patrol_sub,frequency):
                             comment.reply(reply_string)
                             print(f"[+] Replying to an unrequested comment in {targetsub}")
                 
-            except:
+            except Exception:
                 print(f"[-] Encountered an error in {targetsub}")
                 pass
             
