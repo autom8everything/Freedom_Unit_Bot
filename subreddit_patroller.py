@@ -4,7 +4,7 @@ import numpy as np
 #patrolling incoming comments for requests or units
 def patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency):
     
-    cc = 0
+    cc = 1
     
     print(f"[!] Targeting {targetsub}")
     
@@ -20,7 +20,7 @@ def patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency):
                     
                     cc += 1
                     if cc >= frequency: #checks every nth comment
-                        cc = 0
+                        cc = 1
                         hasconversion,reply_string = check_comment(comment.body + " ",units)
                         if hasconversion:
                             comment.reply(reply_string)
