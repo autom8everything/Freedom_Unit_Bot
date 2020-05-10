@@ -8,6 +8,15 @@ def patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency):
     
     print(f"[!] Targeting {targetsub}")
     
+    try:
+        stream_comments(bot,units,targetsub,keyphrase,patrol_sub,frequency)
+        
+    except: #recursively calls function if there is a connection error to restart
+        print(f"[-] Encountered comment stream issues in {targetsub}- reconnecting!")
+        patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency)
+    
+    
+def stream_comments(bot,units,targetsub,keyphrase,patrol_sub,frequency):
     #looping through all incoming comments
     for comment in bot.subreddit(targetsub).stream.comments(skip_existing=True):
         if comment.author != "Freedom_Unit_Bot":
