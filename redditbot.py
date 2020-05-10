@@ -31,7 +31,7 @@ def run_bot():
     
     #configuring what to target
     keyphrase = "!FreedomUnitsBot" #bot name
-    frequency = 100 #comment on one in every 1000 comments
+    frequency = 1 #comment on one in every 2 comments
     
     #reading in CSV file
     units = csvr.csv2dict("unit_conversions.csv")

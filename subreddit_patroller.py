@@ -10,25 +10,25 @@ def patrol(bot,units,targetsub,keyphrase,patrol_sub,frequency):
     
     #looping through all incoming comments
     for comment in bot.subreddit(targetsub).stream.comments(skip_existing=True):
-        
-        try:
-            if keyphrase in comment.body:
-                hasconversion,reply_string = check_comment(comment.body + " ",units)
-                comment.reply(reply_string)
-                print(f"[+] Replying to requested comment in {targetsub}")
-            else:
-                
-                cc += 1
-                if cc >= frequency: #checks every nth comment
-                    cc = 0
+        if comment.author != "Freedom_Unit_Bot":
+            try:
+                if keyphrase in comment.body:
                     hasconversion,reply_string = check_comment(comment.body + " ",units)
-                    if hasconversion:
-                        comment.reply(reply_string)
-                        print(f"[+] Replying to an unrequested comment in {targetsub}")
-            
-        except:
-            print(f"[-] Encountered an error in {targetsub}")
-            pass
+                    comment.reply(reply_string)
+                    print(f"[+] Replying to requested comment in {targetsub}")
+                else:
+                    
+                    cc += 1
+                    if cc >= frequency: #checks every nth comment
+                        cc = 0
+                        hasconversion,reply_string = check_comment(comment.body + " ",units)
+                        if hasconversion:
+                            comment.reply(reply_string)
+                            print(f"[+] Replying to an unrequested comment in {targetsub}")
+                
+            except:
+                print(f"[-] Encountered an error in {targetsub}")
+                pass
             
 
 
