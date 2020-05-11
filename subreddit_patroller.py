@@ -1,4 +1,4 @@
-import re, praw
+import re, praw, traceback
 import numpy as np
 
 #patrolling incoming comments for requests or units
@@ -37,6 +37,7 @@ def stream_comments(bot,units,targetsub,keyphrase,patrol_sub,frequency):
                 
             except Exception:
                 print(f"[-] Encountered an error in {targetsub}")
+                traceback.print_exc()
                 pass
             
 
