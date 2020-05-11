@@ -25,9 +25,9 @@ def run_bot():
     print(f"client_id={bot_client_id}\nclient_secret={bot_client_secret}\nusername={bot_username}\npassword={bot_password}\nuser_agent={bot_agent}")
     
     #subreddits to target
-    subreddits = ["memes","theydidthemath","Python","LearnPython"]
-    patrol_sub = [True, True, True, True]
-    frequency = [3,3,1,1] #comment on one in every x comments
+    subreddits = ["memes","theydidthemath","LearnPython"]
+    patrol_sub = [True, True, True]
+    frequency = [6,3,1] #comment on one in every x comments
     
     
     #configuring what to target
