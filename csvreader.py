@@ -9,11 +9,12 @@ def csv2dict(filename):
             
         for line in f:
             line = line.strip().split(",")
-            for i,value in enumerate(line):
-                try:
-                    outdict[headers[i]].append(float(value))
-                except:
-                    outdict[headers[i]].append(value)
+            if len(line) == len(headers):
+                for i,value in enumerate(line):
+                    try:
+                        outdict[headers[i]].append(float(value))
+                    except:
+                        outdict[headers[i]].append(value)
         
     return outdict
             
