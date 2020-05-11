@@ -27,7 +27,7 @@ def run_bot():
     #subreddits to target
     subreddits = ["memes","theydidthemath","Python","LearnPython"]
     patrol_sub = [True, True, True, True]
-    frequency = [3,1,1,1] #comment on one in every x comments
+    frequency = [3,3,1,1] #comment on one in every x comments
     
     
     #configuring what to target
