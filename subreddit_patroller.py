@@ -82,10 +82,13 @@ def check_for_units(comment,units,key):
 def parse_for_values(comment,unit):
     if unit in comment:
         match = re.search(rf"[\d\.\,-]* ?{unit}[ .,*/_]",comment) #regexp to search for value+units in string
-        isnum,unitvalue = extract_num_from_string(match.group(0)) #pull value only from units
-        
-        if isnum: #return value if successfully pulled
-            return True,unitvalue
+        try:
+            isnum,unitvalue = extract_num_from_string(match.group(0)) #pull value only from units
+            
+            if isnum: #return value if successfully pulled
+                return True,unitvalue
+        except:
+            pass
     
     #if not found
     return False,0
